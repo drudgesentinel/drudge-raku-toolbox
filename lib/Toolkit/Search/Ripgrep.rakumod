@@ -1,5 +1,35 @@
 unit module Toolkit::Search::Ripgrep;
 
+=begin pod
+
+=head1 SYNOPSIS
+
+    use Toolkit::Search::Ripgrep;
+
+    my $ripgrep-binary = resolve-ripgrep-binary;
+    my $ignore-case = True;
+
+    # Equivalent core command: rg -i --max-count 20 TODO lib
+    my $result = search-text(
+        'TODO',
+        :path('lib'),
+        :binary($ripgrep-binary),
+        :$ignore-case,
+        :max-count(20),
+    );
+
+    # Equivalent core command: rg -A1 foo
+    my $after-context = search-text(
+        'foo',
+        :binary($ripgrep-binary),
+        :context(1),
+    );
+
+    say $result.has-matches;
+    say $result.matches.elems;
+
+=end pod
+
 use JSON::Fast;
 use Toolkit::System::LocalBinary;
 

@@ -1,5 +1,19 @@
 unit module Toolkit::System::LocalBinary;
 
+=begin pod
+
+=head1 SYNOPSIS
+
+    use Toolkit::System::LocalBinary;
+
+    my $rg = resolve-binary(:name('rg'));
+    my $result = run-local-command($rg, :args(['--version']));
+
+    say $result.exit-code;
+    say $result.stdout;
+
+=end pod
+
 class LocalCommandResult {
     has Int $.exit-code is required;
     has Str $.stdout is required;

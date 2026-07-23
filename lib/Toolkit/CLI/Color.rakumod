@@ -1,5 +1,18 @@
 unit module Toolkit::CLI::Color;
 
+=begin pod
+
+=head1 SYNOPSIS
+
+    use Toolkit::CLI::Color;
+
+    say color-status('OPEN');
+    say color-title('Incident #1234');
+    say color-url('https://example.test/ticket/1234');
+    say color-company('Acme Corp');
+
+=end pod
+
 use Terminal::ANSIColor;
 
 sub color-status(Str:D $status --> Str:D) is export {
