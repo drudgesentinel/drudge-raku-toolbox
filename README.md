@@ -18,34 +18,31 @@ zef install --deps-only .
 
 2. Use modules via `-Ilib` during local development, or install with `zef install .`.
 
-## Usage
+## Use In Another Project
 
-### Local binary execution
+1. Choose an install source.
+
+From a local checkout:
+
+```bash
+zef install ../drudge-raku-toolbox
+```
+
+From git:
+
+```bash
+zef install git@github.com:drudgesentinel/drudge-raku-toolbox.git
+```
+
+2. Import modules in your project as needed.
 
 ```raku
 use Toolkit::System::LocalBinary;
-
-my $result = run-local-command('echo', :args(['hello']));
-say $result.stdout;
-```
-
-### Ripgrep search
-
-```raku
 use Toolkit::Search::Ripgrep;
-
-my $result = search-text('TODO', :path('README.md'));
-say $result.has-matches;
-```
-
-### Terminal colors
-
-```raku
 use Toolkit::CLI::Color;
-
-say color-title('Toolkit');
-say color-status('OPEN');
 ```
+
+3. For call examples, see the POD comments in each module.
 
 ## Notes
 
