@@ -1,0 +1,20 @@
+{
+  "name": "drudge-raku-toolbox",
+  "description": "Reusable Raku toolkit modules for local command execution, ripgrep search, and terminal color formatting.",
+  "version": "0.1.0",
+  "auth": "zef:drudgesentinel",
+  "authors": [
+    "drudgesentinel"
+  ],
+  "source-url": "git@github.com:drudgesentinel/drudge-raku-toolbox.git",
+  "repo-url": "git@github.com:drudgesentinel/drudge-raku-toolbox.git",
+  "depends": [
+    "JSON::Fast",
+    "Terminal::ANSIColor"
+  ],
+  "provides": {
+    "Toolkit::CLI::Color": "lib/Toolkit/CLI/Color.rakumod",
+    "Toolkit::Search::Ripgrep": "lib/Toolkit/Search/Ripgrep.rakumod",
+    "Toolkit::System::LocalBinary": "lib/Toolkit/System/LocalBinary.rakumod"
+  }
+}
