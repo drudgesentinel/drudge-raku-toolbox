@@ -51,11 +51,13 @@ sub search-text(
     Str :$binary,
     :@extra-flags = [],
     Bool :$ignore-case = False,
+    # Fixed strings determines whether the pattern is treated as a literal string or a regex.
     Bool :$fixed-strings = False,
     Bool :$word-regexp = False,
     Bool :$reverse = False,
     Int :$max-count,
     Bool :$hidden = False,
+    # Whether to follow symlinks. This is equivalent to the `-L` flag in ripgrep.
     Bool :$follow = False,
     Bool :$no-ignore = False,
     Int :$context,
@@ -97,6 +99,7 @@ sub resolve-ripgrep-binary(Str :$candidate --> Str:D) is export {
     resolve-binary(:name('rg'), :$candidate);
 }
 
+# This parses the JSON output from ripgrep and returns an array of match objects for consuming via Raku
 sub parse-json-matches(Str:D $stdout --> Array:D) {
     my @matches;
 
